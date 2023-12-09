@@ -9,8 +9,7 @@ export default function Home() {
             <Image
                 src="/bg-shape.svg"
                 alt="background shape"
-                width={2000}
-                height={1000}
+                fill
             />
         </div>
 

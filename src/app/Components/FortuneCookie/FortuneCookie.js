@@ -3,15 +3,19 @@ import {useState} from "react";
 import Image from "next/image";
 import {getFortuneCookie} from "@/app/Components/FortuneCookie/getFortuneCookie";
 import styles from './fortuneCookie.module.css'
+import cn from 'classnames';
 
 export const FortuneCookie = () => {
     const [showFortune, setShowFortune] = useState(false);
     const [fortuneMessage, setFortuneMessage] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const onClick = async () => {
+        setIsLoading(true)
         const fortune = await getFortuneCookie();
         setShowFortune(true);
         setFortuneMessage(fortune);
+        setIsLoading(false);
     }
 
     const reset = () => {
@@ -21,14 +25,14 @@ export const FortuneCookie = () => {
 
     return  <>
         {showFortune && (
+
             <div className={styles.container}>
                 <div className={styles.cookieOpened}>
                     <Image
                         src="/fortune-cookie-opened.webp"
                         alt="fortune cookie opened"
-                        width={667}
+                        width={405}
                         height={300}
-                        priority
                     />
                     {fortuneMessage && <div className={styles.message}>{fortuneMessage}</div>}
                 </div>
@@ -40,7 +44,7 @@ export const FortuneCookie = () => {
 
         {!showFortune && (
             <Image
-                className={styles.cookie}
+                className={cn(styles.cookie, {[styles.loading]: isLoading})}
                 src="/fortune-cookie.webp"
                 alt="fortune cookie"
                 width={475}
