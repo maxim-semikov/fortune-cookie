@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Fortune Cookie',
-  description: 'Все любят открывать печенье с предсказанием в конце еды... Теперь вы можете открывать столько, сколько захотите!',
+  description: 'Все любят открывать печенье с предсказанием... Теперь вы можете открывать столько, сколько захотите!',
 }
 
 export default function RootLayout({ children }) {

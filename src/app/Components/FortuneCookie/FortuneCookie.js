@@ -33,6 +33,7 @@ export const FortuneCookie = () => {
                         alt="fortune cookie opened"
                         width={405}
                         height={300}
+                        priority
                     />
                     {fortuneMessage && <div className={styles.message}>{fortuneMessage}</div>}
                 </div>
